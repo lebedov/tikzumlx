@@ -77,6 +77,7 @@
                        fill fragment/.initial= none,%
 			fill component/.initial= yellow!20,%
 			fill assembly connector/.initial= white,%
+			fill port/.initial=yellow!10,%
                        .unknown/.code={%
                          \let\keyname=\pgfkeyscurrentname%
                          \errmessage{TIKZUML ERROR : in tikzuml global, invalid option \keyname}%
@@ -90,7 +91,9 @@
                        fill call/.get=\tikzumlfillcallcolor,%
                        fill fragment/.get=\tikzumlfillfragmentcolor,%
 			fill component/.get=\tikzumlfillcomponentcolor,%
-			fill assembly connector/.get=\tikzumlfillassemblyconnectorcolor}%
+			fill assembly connector/.get=\tikzumlfillassemblyconnectorcolor,%
+			fill port/.get=\tikzumlfillportcolor%
+}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                       class diagrams                    %
@@ -145,8 +148,10 @@
                        fill state/.get=\tikzumlfillstatecolor,%
                        fill object/.get=\tikzumlfillobjectcolor,%
                        fill call/.get=\tikzumlfillcallcolor,%
-                       fill fragment/.get=\tikzumlfillfragmentcolor}%
-}%
+                       fill fragment/.get=\tikzumlfillfragmentcolor,%
+					   fill component/.get=\tikzumlfillcomponentcolor,%
+					   fill assembly connector/.get=\tikzumlfillassemblyconnectorcolor,%
+					   fill port/.get=\tikzumlfillportcolor}}%
 
 % define a point
 % arg : node/coordinates of the point
@@ -3966,7 +3971,7 @@
 				anchor1/.initial={}, anchor2/.initial={},%
 				draw/.initial=\tikzumldrawcolor,%
 				fill assembly connector/.initial=\tikzumlfillassemblyconnectorcolor,%
-				fill port/.initial=\tikzumlfillcomponentcolor}%
+				fill port/.initial=\tikzumlfillportcolor}%
   \pgfkeys{/tikzuml/assemblyconnectorrelation/.cd, .unknown/.code={%
       \let\keyname=\pgfkeyscurrentname%
       \ifthenelse{\equal{\keyname}{with port}}{%
